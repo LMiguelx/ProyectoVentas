@@ -7,6 +7,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="Inicio de sesión del sistema" />
     <title>Sistema de ventas - Login</title>
+    <style>
+        body {
+            background-image: url('/assets/img/login.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+        }
+
+        #layoutAuthentication {
+            position: relative;
+            z-index: 1;
+        }
+
+        #layoutAuthentication .form-container {
+            border-radius: 10px;
+            overflow: hidden;
+            padding: 20px;
+            margin-top: 50px; /* Ajusta según sea necesario */
+        }
+
+        .form-floating {
+            background-color: transparent;
+        }
+
+        .btn-container {
+            text-align: right;
+            margin-top: 15px; /* Ajusta según sea necesario */
+        }
+
+        /* Ajusta otros estilos según sea necesario */
+
+    </style>
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
@@ -15,13 +49,9 @@
     <div id="layoutAuthentication">
         <div id="layoutAuthentication_content">
             <main>
-                <div class="container">
-                    <div class="text-end mt-2">
-                        <a href="{{ url('/') }}" class="btn btn-secondary">Regresar al Portal</a>
-                    </div>
-
+                <div class="container form-container">
                     <div class="row justify-content-center">
-                        <div class="col-lg-5">
+                        <div class="col-lg-4">
                             <div class="card shadow-lg border-0 rounded-lg mt-5">
                                 <div class="card-header">
                                     <h3 class="text-center font-weight-light my-4">Acceso al sistema</h3>
@@ -38,16 +68,19 @@
                                     <form action="/login" method="post">
                                         @csrf
                                         <div class="form-floating mb-3">
-                                            <input autofocus autocomplete="off" value="invitado@gmail.com" class="form-control" name="email" id="inputEmail" type="email" placeholder="name@example.com" />
+                                            <input autofocus autocomplete="off" value="Miguel@gmail.com" class="form-control" name="email" id="inputEmail" type="email" placeholder="name@example.com" />
                                             <label for="inputEmail">Correo eléctronico</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" name="password" value="12345678" id="inputPassword" type="password" placeholder="Password" />
+                                            <input class="form-control" name="password" value="Tecsup12023" id="inputPassword" type="password" placeholder="Password" />
                                             <label for="inputPassword">Contraseña</label>
                                         </div>
 
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                            <button class="btn btn-primary" type="submit">Iniciar sesión</button>
+                                            <div class="btn-container">
+                                                <button class="btn btn-primary" type="submit">Iniciar sesión</button>
+                                                <a href="{{ url('/') }}" class="btn btn-danger">Regresar al Portal</a>
+                                            </div>
                                         </div>
                                     </form>
                                 </div>

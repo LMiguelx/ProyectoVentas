@@ -79,18 +79,17 @@
                                         </svg>
                                     </button>
                                     <ul class="dropdown-menu text-bg-light" style="font-size: small;">
-                                        <!-----Editar cliente--->
                                         @can('editar-cliente')
                                         <li><a class="dropdown-item" href="{{route('clientes.edit',['cliente'=>$item])}}">Editar</a></li>
                                         @endcan
                                     </ul>
                                 </div>
 
-                                <div> <!----Separador----->
+                                <div> 
                                     <div class="vr"></div>
                                 </div>
 
-                                <div> <!------Eliminar cliente---->
+                                <div> 
                                     @can('eliminar-cliente')
                                     @if ($item->persona->estado == 1)
                                     <button title="Eliminar" data-bs-toggle="modal" data-bs-target="#confirmModal-{{$item->id}}" class="btn btn-datatable btn-icon btn-transparent-dark">
@@ -110,7 +109,6 @@
                         </td>
                     </tr>
 
-                    <!-- Modal de confirmación-->
                     <div class="modal fade" id="confirmModal-{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">

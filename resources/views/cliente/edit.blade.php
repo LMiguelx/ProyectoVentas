@@ -26,7 +26,6 @@
 
                 <div class="row g-3">
 
-                    <!-------Razón social------->
                     <div class="col-12">
                         @if ($cliente->persona->tipo_persona == 'natural')
                         <label id="label-natural" for="razon_social" class="form-label">Nombres y apellidos:</label>
@@ -41,7 +40,6 @@
                         @enderror
                     </div>
 
-                    <!------Dirección---->
                     <div class="col-12">
                         <label for="direccion" class="form-label">Dirección:</label>
                         <input required type="text" name="direccion" id="direccion" class="form-control" value="{{old('direccion',$cliente->persona->direccion)}}">
@@ -50,7 +48,6 @@
                         @enderror
                     </div>
 
-                    <!--------------Documento------->
                     <div class="col-md-6">
                         <label for="documento_id" class="form-label">Tipo de documento:</label>
                         <select class="form-select" name="documento_id" id="documento_id">

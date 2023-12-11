@@ -1,11 +1,11 @@
-<footer class="py-4 bg-light mt-auto">
-    <div class="container-fluid px-4">
+<footer class="py-3 bg-light mt-auto">
+    <div class="container-fluid px-3">
         <div class="d-flex align-items-center justify-content-between small">
-            <div class="text-muted">Copyright &copy; Your Website 2022</div>
+            <div class="text-muted">Proyecto integrador - Sistema de Ventas</div>
             <div>
-                <a href="#">Privacy Policy</a>
+                <a href="#"></a>
                 &middot;
-                <a href="#">Terms &amp; Conditions</a>
+                <a href="#"></a>
             </div>
         </div>
     </div>

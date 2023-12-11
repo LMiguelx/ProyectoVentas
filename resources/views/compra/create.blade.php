@@ -23,14 +23,13 @@
 
     <div class="container-lg mt-4">
         <div class="row gy-4">
-            <!------Compra producto---->
             <div class="col-xl-8">
                 <div class="text-white bg-primary p-1 text-center">
                     Detalles de la compra
                 </div>
                 <div class="p-3 border border-3 border-primary">
                     <div class="row">
-                        <!-----Producto---->
+
                         <div class="col-12 mb-4">
                             <select name="producto_id" id="producto_id" class="form-control selectpicker" data-live-search="true" data-size="1" title="Busque un producto aquí">
                                 @foreach ($productos as $item)
@@ -39,30 +38,30 @@
                             </select>
                         </div>
 
-                        <!-----Cantidad---->
+
                         <div class="col-sm-4 mb-2">
                             <label for="cantidad" class="form-label">Cantidad:</label>
                             <input type="number" name="cantidad" id="cantidad" class="form-control">
                         </div>
 
-                        <!-----Precio de compra---->
+
                         <div class="col-sm-4 mb-2">
                             <label for="precio_compra" class="form-label">Precio de compra:</label>
                             <input type="number" name="precio_compra" id="precio_compra" class="form-control" step="0.1">
                         </div>
 
-                        <!-----Precio de venta---->
+
                         <div class="col-sm-4 mb-2">
                             <label for="precio_venta" class="form-label">Precio de venta:</label>
                             <input type="number" name="precio_venta" id="precio_venta" class="form-control" step="0.1">
                         </div>
 
-                        <!-----botón para agregar--->
+
                         <div class="col-12 mb-4 mt-2 text-end">
                             <button id="btn_agregar" class="btn btn-primary" type="button">Agregar</button>
                         </div>
 
-                        <!-----Tabla para el detalle de la compra--->
+
                         <div class="col-12">
                             <div class="table-responsive">
                                 <table id="tabla_detalle" class="table table-hover">
@@ -109,7 +108,7 @@
                             </div>
                         </div>
 
-                        <!--Boton para cancelar compra-->
+
                         <div class="col-12 mt-2">
                             <button id="cancelar" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 Cancelar compra
@@ -120,14 +119,14 @@
                 </div>
             </div>
 
-            <!-----Compra---->
+
             <div class="col-xl-4">
                 <div class="text-white bg-success p-1 text-center">
                     Datos generales
                 </div>
                 <div class="p-3 border border-3 border-success">
                     <div class="row">
-                        <!--Proveedor-->
+
                         <div class="col-12 mb-2">
                             <label for="proveedore_id" class="form-label">Proveedor:</label>
                             <select name="proveedore_id" id="proveedore_id" class="form-control selectpicker show-tick" data-live-search="true" title="Selecciona" data-size='2'>
@@ -140,7 +139,7 @@
                             @enderror
                         </div>
 
-                        <!--Tipo de comprobante-->
+
                         <div class="col-12 mb-2">
                             <label for="comprobante_id" class="form-label">Comprobante:</label>
                             <select name="comprobante_id" id="comprobante_id" class="form-control selectpicker" title="Selecciona">
@@ -153,7 +152,7 @@
                             @enderror
                         </div>
 
-                        <!--Numero de comprobante-->
+
                         <div class="col-12 mb-2">
                             <label for="numero_comprobante" class="form-label">Numero de comprobante:</label>
                             <input required type="text" name="numero_comprobante" id="numero_comprobante" class="form-control">
@@ -162,7 +161,7 @@
                             @enderror
                         </div>
 
-                        <!--Impuesto---->
+
                         <div class="col-sm-6 mb-2">
                             <label for="impuesto" class="form-label">Impuesto(IGV):</label>
                             <input readonly type="text" name="impuesto" id="impuesto" class="form-control border-success">
@@ -171,7 +170,7 @@
                             @enderror
                         </div>
 
-                        <!--Fecha--->
+
                         <div class="col-sm-6 mb-2">
                             <label for="fecha" class="form-label">Fecha:</label>
                             <input readonly type="date" name="fecha" id="fecha" class="form-control border-success" value="<?php echo date("Y-m-d") ?>">
@@ -184,7 +183,7 @@
                             <input type="hidden" name="fecha_hora" value="{{$fecha_hora}}">
                         </div>
 
-                        <!--Botones--->
+
                         <div class="col-12 mt-4 text-center">
                             <button type="submit" class="btn btn-success" id="guardar">Realizar compra</button>
                         </div>
@@ -195,7 +194,7 @@
         </div>
     </div>
 
-    <!-- Modal para cancelar la compra -->
+
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -241,14 +240,14 @@
     let igv = 0;
     let total = 0;
 
-    //Constantes
+
     const impuesto = 18;
 
     function cancelarCompra() {
-        //Elimar el tbody de la tabla
+
         $('#tabla_detalle tbody').empty();
 
-        //Añadir una nueva fila a la tabla
+
         let fila = '<tr>' +
             '<th></th>' +
             '<td></td>' +
@@ -260,14 +259,14 @@
             '</tr>';
         $('#tabla_detalle').append(fila);
 
-        //Reiniciar valores de las variables
+
         cont = 0;
         subtotal = [];
         sumas = 0;
         igv = 0;
         total = 0;
 
-        //Mostrar los campos calculados
+
         $('#sumas').html(sumas);
         $('#igv').html(igv);
         $('#total').html(total);
@@ -291,29 +290,28 @@
     }
 
     function agregarProducto() {
-        //Obtener valores de los campos
+
         let idProducto = $('#producto_id').val();
         let nameProducto = ($('#producto_id option:selected').text()).split(' ')[1];
         let cantidad = $('#cantidad').val();
         let precioCompra = $('#precio_compra').val();
         let precioVenta = $('#precio_venta').val();
 
-        //Validaciones 
-        //1.Para que los campos no esten vacíos
+
         if (nameProducto != '' && nameProducto != undefined && cantidad != '' && precioCompra != '' && precioVenta != '') {
 
-            //2. Para que los valores ingresados sean los correctos
+
             if (parseInt(cantidad) > 0 && (cantidad % 1 == 0) && parseFloat(precioCompra) > 0 && parseFloat(precioVenta) > 0) {
 
-                //3. Para que el precio de compra sea menor que el precio de venta
+
                 if (parseFloat(precioVenta) > parseFloat(precioCompra)) {
-                    //Calcular valores
+
                     subtotal[cont] = round(cantidad * precioCompra);
                     sumas += subtotal[cont];
                     igv = round(sumas / 100 * impuesto);
                     total = round(sumas + igv);
 
-                    //Crear la fila
+
                     let fila = '<tr id="fila' + cont + '">' +
                         '<th>' + (cont + 1) + '</th>' +
                         '<td><input type="hidden" name="arrayidproducto[]" value="' + idProducto + '">' + nameProducto + '</td>' +
@@ -324,13 +322,13 @@
                         '<td><button class="btn btn-danger" type="button" onClick="eliminarProducto(' + cont + ')"><i class="fa-solid fa-trash"></i></button></td>' +
                         '</tr>';
 
-                    //Acciones después de añadir la fila
+
                     $('#tabla_detalle').append(fila);
                     limpiarCampos();
                     cont++;
                     disableButtons();
 
-                    //Mostrar los campos calculados
+
                     $('#sumas').html(sumas);
                     $('#igv').html(igv);
                     $('#total').html(total);
@@ -353,19 +351,19 @@
     }
 
     function eliminarProducto(indice) {
-        //Calcular valores
+
         sumas -= round(subtotal[indice]);
         igv = round(sumas / 100 * impuesto);
         total = round(sumas + igv);
 
-        //Mostrar los campos calculados
+
         $('#sumas').html(sumas);
         $('#igv').html(igv);
         $('#total').html(total);
         $('#impuesto').val(igv);
         $('#InputTotal').val(total);
 
-        //Eliminar el fila de la tabla
+
         $('#fila' + indice).remove();
 
         disableButtons();
@@ -383,16 +381,15 @@
     function round(num, decimales = 2) {
         var signo = (num >= 0 ? 1 : -1);
         num = num * signo;
-        if (decimales === 0) //con 0 decimales
+        if (decimales === 0) 
             return signo * Math.round(num);
-        // round(x * 10 ^ decimales)
+
         num = num.toString().split('e');
         num = Math.round(+(num[0] + 'e' + (num[1] ? (+num[1] + decimales) : decimales)));
-        // x * 10 ^ (-decimales)
+
         num = num.toString().split('e');
         return signo * (num[0] + 'e' + (num[1] ? (+num[1] - decimales) : -decimales));
     }
-    //Fuente: https://es.stackoverflow.com/questions/48958/redondear-a-dos-decimales-cuando-sea-necesario
 
     function showModal(message, icon = 'error') {
         const Toast = Swal.mixin({

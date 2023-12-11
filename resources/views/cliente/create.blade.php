@@ -27,7 +27,6 @@
 
                 <div class="row g-3">
 
-                    <!----Tipo de persona----->
                     <div class="col-md-6">
                         <label for="tipo_persona" class="form-label">Tipo de cliente:</label>
                         <select class="form-select" name="tipo_persona" id="tipo_persona">
@@ -40,7 +39,6 @@
                         @enderror
                     </div>
 
-                    <!-------Razón social------->
                     <div class="col-12" id="box-razon-social">
                         <label id="label-natural" for="razon_social" class="form-label">Nombres y apellidos:</label>
                         <label id="label-juridica" for="razon_social" class="form-label">Nombre de la empresa:</label>
@@ -52,7 +50,6 @@
                         @enderror
                     </div>
 
-                    <!------Dirección---->
                     <div class="col-12">
                         <label for="direccion" class="form-label">Dirección:</label>
                         <input required type="text" name="direccion" id="direccion" class="form-control" value="{{old('direccion')}}">
@@ -61,7 +58,6 @@
                         @enderror
                     </div>
 
-                    <!--------------Documento------->
                     <div class="col-md-6">
                         <label for="documento_id" class="form-label">Tipo de documento:</label>
                         <select class="form-select" name="documento_id" id="documento_id">
@@ -100,7 +96,6 @@
     $(document).ready(function() {
         $('#tipo_persona').on('change', function() {
             let selectValue = $(this).val();
-            //natural //juridica
             if (selectValue == 'natural') {
                 $('#label-juridica').hide();
                 $('#label-natural').show();
